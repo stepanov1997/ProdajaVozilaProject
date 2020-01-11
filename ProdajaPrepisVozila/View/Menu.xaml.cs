@@ -38,7 +38,7 @@ namespace ProdajaPrepisVozila.View
 
         private void Gost_Click(object sender, MouseButtonEventArgs e)
         {
-            var carsPage = new View.CarsForSelling(navigationWindow);
+            var carsPage = new CarsForSelling(navigationWindow);
             navigationWindow.Navigate(carsPage);
         }
 

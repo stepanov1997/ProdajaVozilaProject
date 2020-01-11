@@ -1,6 +1,6 @@
 ﻿namespace ProdajaPrepisVozila.Model.Dto.Vozila
 {
-    class VoziloProxy
+    public class VoziloProxy
     {
         public int Id { get; }
         public Vozilo Vozilo { get; }

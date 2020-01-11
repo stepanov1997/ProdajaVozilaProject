@@ -2,7 +2,7 @@
 
 namespace ProdajaPrepisVozila.Model.Dto.Vozila
 {
-    internal class Vozilo
+    public class Vozilo
     {
         public int Id { get; set; }
         public string Marka { get; set; }

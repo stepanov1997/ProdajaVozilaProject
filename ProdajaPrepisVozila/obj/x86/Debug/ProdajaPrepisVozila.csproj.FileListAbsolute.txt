@@ -272,3 +272,7 @@ C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\obj\x86\Debug\Pr
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\obj\x86\Debug\ProdajaPrepisVozila.pdb
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\obj\x86\Debug\View\CarsForSelling.g.cs
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\obj\x86\Debug\View\CarsForSelling.baml
+C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\obj\x86\Debug\View\CarComponent.g.cs
+C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\obj\x86\Debug\View\CarComponent.baml
+C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaPrepisVozila\bin\x86\Debug\Newtonsoft.Json.xml

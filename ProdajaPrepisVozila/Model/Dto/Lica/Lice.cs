@@ -1,6 +1,6 @@
 ﻿namespace ProdajaPrepisVozila.Model.Dto.Lica
 {
-    class Lice
+    public class Lice
     {
         public int Id { get; set; }
         public string Ime { get; set; }
@@ -27,7 +27,7 @@
         }
     }
 
-    internal enum TipLica
+    public enum TipLica
     {
         // ReSharper disable once InconsistentNaming
         // ReSharper disable once UnusedMember.Global
