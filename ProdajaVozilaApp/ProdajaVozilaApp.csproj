@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon />
+    <Win32Resource />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Administrator.png" />
+    <None Remove="Resources\Capture.PNG" />
+    <None Remove="Resources\Gost.png" />
+    <None Remove="Resources\leafs.jpg" />
+    <None Remove="Resources\page.html" />
+    <None Remove="Resources\pozadina.jpg" />
+    <None Remove="Resources\pozadina.svg" />
+    <None Remove="Resources\sat.jpg" />
+    <None Remove="Resources\Sluzbenik.png" />
+    <None Remove="Resources\SluzbenikBold.png" />
+    <None Remove="Resources\staklo.jpg" />
+    <None Remove="Resources\zid.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspose.PDF" Version="20.1.0" />
+    <PackageReference Include="HtmlRenderer.PdfSharp" Version="1.5.0.6" />
+    <PackageReference Include="linq2db" Version="2.9.5" />
+    <PackageReference Include="MySqlConnector" Version="0.61.0" />
+    <PackageReference Include="PdfSharp" Version="1.50.5147" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Administrator.png" />
+    <Resource Include="Resources\Capture.PNG" />
+    <Resource Include="Resources\Gost.png" />
+    <Resource Include="Resources\leafs.jpg" />
+    <Resource Include="Resources\page.html" />
+    <Resource Include="Resources\pozadina.jpg" />
+    <Resource Include="Resources\pozadina.svg" />
+    <Resource Include="Resources\sat.jpg" />
+    <Resource Include="Resources\Sluzbenik.png" />
+    <Resource Include="Resources\SluzbenikBold.png" />
+    <Resource Include="Resources\staklo.jpg" />
+    <Resource Include="Resources\zid.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\Sluzbenik\SluzbenikMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="View\Sluzbenik\SluzbenikMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
