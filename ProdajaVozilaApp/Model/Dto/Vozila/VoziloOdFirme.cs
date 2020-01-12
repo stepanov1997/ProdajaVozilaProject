@@ -18,5 +18,10 @@
             Snizenje = snizenje;
             Opis = opis;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(Id)}: {Id}, {nameof(Vozilo)}: {Vozilo}, {nameof(Slika)}: {Slika}, {nameof(Cijena)}: {Cijena}, {nameof(Snizenje)}: {Snizenje}, {nameof(Opis)}: {Opis}";
+        }
     }
 }

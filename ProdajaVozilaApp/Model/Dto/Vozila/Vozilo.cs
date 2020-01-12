@@ -25,5 +25,10 @@ namespace ProdajaVozilaApp.Model.Dto.Vozila
             BrojMotora = brojMotora;
             VlasnikVozila = vlasnikVozila;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(Id)}: {Id}, {nameof(Marka)}: {Marka}, {nameof(Model)}: {Model}, {nameof(GodinaProizvodnje)}: {GodinaProizvodnje}, {nameof(RegistarskiBroj)}: {RegistarskiBroj}, {nameof(BrojSasije)}: {BrojSasije}, {nameof(BrojMotora)}: {BrojMotora}, {nameof(VlasnikVozila)}: {VlasnikVozila}";
+        }
     }
 }

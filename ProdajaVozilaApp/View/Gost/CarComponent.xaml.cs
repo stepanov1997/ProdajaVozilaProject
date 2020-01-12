@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using ProdajaVozilaApp.Model.Dto.Vozila;
@@ -18,6 +19,7 @@ namespace ProdajaVozilaApp.View.Gost
         public CarComponent(VoziloOdFirme voziloOdFirme) : this()
         {
             Image.Source = ToImage(voziloOdFirme.Slika);
+            Image.MouseUp += (sender, args) => MessageBox.Show(voziloOdFirme.ToString(), "Osobine");
             Name.Text = $"{voziloOdFirme.Vozilo.Marka} {voziloOdFirme.Vozilo.Model} ({voziloOdFirme.Vozilo.GodinaProizvodnje})";
             Price.Text = $"{voziloOdFirme.Cijena} KM";
         }

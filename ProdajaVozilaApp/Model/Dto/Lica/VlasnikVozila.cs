@@ -13,5 +13,10 @@
         {
             IdVlasnika = idVlasnika;
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}, {nameof(IdVlasnika)}: {IdVlasnika}";
+        }
     }
 }

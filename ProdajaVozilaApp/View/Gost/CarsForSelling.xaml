@@ -8,7 +8,7 @@
       Title="Menu" Height="570" Width="875">
 
     <Page.Background>
-        <ImageBrush ImageSource="../../Resources/pozadina.jpg"></ImageBrush>
+        <ImageBrush ImageSource="../../Resources/pozadina.jpg" Opacity="0.4"></ImageBrush>
     </Page.Background>
     <Page.Resources>
         <Style 
