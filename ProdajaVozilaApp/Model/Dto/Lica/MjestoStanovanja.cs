@@ -1,14 +1,20 @@
-﻿namespace ProdajaVozilaApp.Model.Dto.Lica
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using ProdajaVozilaApp.Model.Dto.Alati;
+
+namespace ProdajaVozilaApp.Model.Dto.Lica
 {
-    public class MjestoStanovanja
+    public class MjestoStanovanja : IObject
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Grad { get; set; }
         public string Opstina { get; set; }
         public string Ulica { get; set; }
         public string Broj { get; set; }
 
-        public MjestoStanovanja(int id, string grad, string opstina, string ulica, string broj)
+        public MjestoStanovanja(int? id, string grad, string opstina, string ulica, string broj)
         {
             Id = id;
             Grad = grad;

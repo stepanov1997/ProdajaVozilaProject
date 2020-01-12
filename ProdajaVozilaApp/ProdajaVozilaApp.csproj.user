@@ -10,9 +10,15 @@
     <Compile Update="View\Administrator\AdminMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Gost\CarDetailedInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Gost\CarDetailedInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Sluzbenik\SluzbenikMenu.xaml">

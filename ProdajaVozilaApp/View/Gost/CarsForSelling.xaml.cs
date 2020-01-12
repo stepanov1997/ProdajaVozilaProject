@@ -94,6 +94,10 @@ namespace ProdajaVozilaApp.View.Gost
             //        .ToList();
 
             List<VoziloOdFirme> list = new VoziloOdFirmeDao().GetAll();
+            for (int i = 0; i < 40; i++)
+            {
+                list.Add(list[i%4]);
+            }
 
             foreach (var voziloProxy in list)
             {
@@ -103,7 +107,7 @@ namespace ProdajaVozilaApp.View.Gost
                     ListOfPages.Add(new CarComponent[ROWS, COLUMNS]);
                 }
                 var component = new CarComponent(voziloProxy);
-                ListOfPages[ListOfPages.Count - 1][Row, Column] = component;
+                ListOfPages[^1][Row, Column] = component;
                 Column++;
                 if (Column == COLUMNS)
                 {

@@ -1,8 +1,9 @@
-﻿using ProdajaVozilaApp.Model.Dto.Lica;
+﻿using ProdajaVozilaApp.Model.Dto.Alati;
+using ProdajaVozilaApp.Model.Dto.Lica;
 
 namespace ProdajaVozilaApp.Model.Dto.Vozila
 {
-    public class Vozilo
+    public class Vozilo : IObject
     {
         public int Id { get; set; }
         public string Marka { get; set; }

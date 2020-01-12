@@ -1,8 +1,10 @@
-﻿namespace ProdajaVozilaApp.Model.Dto.Lica
+﻿using ProdajaVozilaApp.Model.Dto.Alati;
+
+namespace ProdajaVozilaApp.Model.Dto.Lica
 {
-    public class Lice
+    public class Lice : IObject
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string BrojLicneKarte { get; set; }
@@ -12,7 +14,7 @@
 
         public Lice(Lice lice) : this(lice.Id, lice.Ime, lice.Prezime, lice.BrojLicneKarte, lice.Jmbg, lice.MjestoStanovanja, lice.TipLica) {}
 
-        public Lice(int id, string ime, string prezime, string brojLicneKarte, string jmbg, MjestoStanovanja mjestoStanovanja, TipLica tipLica)
+        public Lice(int? id, string ime, string prezime, string brojLicneKarte, string jmbg, MjestoStanovanja mjestoStanovanja, TipLica tipLica)
         {
             Id = id;
             Ime = ime;

@@ -44,3 +44,5 @@ C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\obj\Debug\netcoreap
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\obj\Debug\netcoreapp3.1\View\Gost\CarsForSelling.baml
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\obj\Debug\netcoreapp3.1\View\Sluzbenik\SluzbenikMenu.baml
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\obj\Debug\netcoreapp3.1\View\Gost\CarDetailedInfo.g.cs
+C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\obj\Debug\netcoreapp3.1\View\Gost\CarDetailedInfo.baml

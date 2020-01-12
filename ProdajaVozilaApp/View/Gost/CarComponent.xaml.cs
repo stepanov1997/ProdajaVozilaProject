@@ -18,8 +18,12 @@ namespace ProdajaVozilaApp.View.Gost
 
         public CarComponent(VoziloOdFirme voziloOdFirme) : this()
         {
-            Image.Source = ToImage(voziloOdFirme.Slika);
-            Image.MouseUp += (sender, args) => MessageBox.Show(voziloOdFirme.ToString(), "Osobine");
+            Image.Source = ToImage(voziloOdFirme.Slike[0]);
+            Image.MouseUp += (sender, args) =>
+            {
+                Window detailedInfos = new CarDetailedInfo(voziloOdFirme);
+                detailedInfos.Show();
+            };
             Name.Text = $"{voziloOdFirme.Vozilo.Marka} {voziloOdFirme.Vozilo.Model} ({voziloOdFirme.Vozilo.GodinaProizvodnje})";
             Price.Text = $"{voziloOdFirme.Cijena} KM";
         }

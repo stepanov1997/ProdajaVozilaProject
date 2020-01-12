@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProdajaVozilaApp.Model.Dto.Alati;
 using ProdajaVozilaApp.Model.Dto.Lica;
 using ProdajaVozilaApp.Model.Dto.Vozila;
 
-namespace ProdajaVozilaApp.Model
+namespace ProdajaVozilaApp.Model.Dto
 {
-    class KupoprodajniUgovor
+    class KupoprodajniUgovor : IObject
     {
         public KupacVozila KupacVozila { get; set; }
         public ProdavacVozila ProdavacVozila { get; set; }
