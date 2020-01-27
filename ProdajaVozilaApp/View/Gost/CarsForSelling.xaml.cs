@@ -61,7 +61,7 @@ namespace ProdajaVozilaApp.View.Gost
                 var e = hyperlinks[index];
                 if (index == CurrentPage)
                 {
-                    footer.Children.Add(new TextBlock() { Text = $"{index+1}" + (index==hyperlinks.Count-1?"":", "), VerticalAlignment = VerticalAlignment.Center, TextAlignment = TextAlignment.Center });
+                    footer.Children.Add(new TextBlock() { Text = $"{index + 1}" + (index == hyperlinks.Count - 1 ? "" : ", "), VerticalAlignment = VerticalAlignment.Center, TextAlignment = TextAlignment.Center });
                 }
                 else
                 {
@@ -94,9 +94,10 @@ namespace ProdajaVozilaApp.View.Gost
             //        .ToList();
 
             List<VoziloOdFirme> list = new VoziloOdFirmeDao().GetAll();
-            for (int i = 0; i < 40; i++)
+            int num = list.Count;
+            for (int i = 0; i < num; i++)
             {
-                list.Add(list[i%4]);
+                list.Add(list[i % 4]);
             }
 
             foreach (var voziloProxy in list)
@@ -150,12 +151,12 @@ namespace ProdajaVozilaApp.View.Gost
             Grid.SetColumnSpan(footer, 2);
             Grid.SetRow(footer, 4);
 
-            for (int row = 0; row < ListOfPages[page].GetLength(0); row++)
+            for (int row = 0; ListOfPages.Count != 0 && row < ListOfPages[page].GetLength(0); row++)
             {
                 for (int column = 0; column < ListOfPages[page].GetLength(1); column++)
                 {
                     var component = ListOfPages[page][row, column];
-                    if(component==null) continue;
+                    if (component == null) continue;
                     Grid.Children.Add(component);
                     Grid.SetRow(component, row + 1);
                     Grid.SetColumn(component, column);

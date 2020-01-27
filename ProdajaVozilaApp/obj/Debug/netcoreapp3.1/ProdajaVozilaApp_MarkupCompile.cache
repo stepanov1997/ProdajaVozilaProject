@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\stepa\Desktop\ProdajaVozilaProject\ProdajaVozilaApp\App.xaml
-7587983438
+101725641670
 
-301569401680
+33-588706425
 204476627188
-MainWindow.xaml;View\Administrator\AdminMenu.xaml;View\Gost\CarComponent.xaml;View\Gost\CarDetailedInfo.xaml;View\Gost\CarsForSelling.xaml;View\Menu.xaml;View\Sluzbenik\SluzbenikMenu.xaml;
+MainWindow.xaml;View\Administrator\AdminMenu.xaml;View\Gost\CarComponent.xaml;View\Gost\CarDetailedInfo.xaml;View\Gost\CarsForSelling.xaml;View\Menu.xaml;View\Sluzbenik\AddNewCarWindow.xaml;View\Sluzbenik\CarComponentEdit.xaml;View\Sluzbenik\SluzbenikMenu.xaml;View\Sluzbenik\UpdateCarsWindow.xaml;
 
 False
 

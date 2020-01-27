@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,9 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ProdajaVozilaApp.Model.Dto.Vozila;
-using System.Reflection;
 using ProdajaVozilaApp.Model.Dto.Alati;
 
 namespace ProdajaVozilaApp.View.Gost
@@ -34,7 +33,18 @@ namespace ProdajaVozilaApp.View.Gost
             DataGrid.HeadersVisibility = DataGridHeadersVisibility.None;
             DataGrid.ColumnWidth = new DataGridLength(50, DataGridLengthUnitType.Star);
 
-            Slika.Source = ToImage(voziloOdFirme.Slike[0]);
+            if (voziloOdFirme.Slike == null)
+            {
+                voziloOdFirme.Slike = new List<byte[]>();
+            }
+            if (voziloOdFirme.Slike.Count == 0)
+            {
+                Slika.Source = new BitmapImage(new Uri(Path.GetFullPath("../../../Resources/no-picture.png")));
+            }
+            else
+            {
+                Slika.Source = ToImage(voziloOdFirme.Slike[0]);
+            }
             Slika.MouseLeftButtonDown += (sender, args) =>
             {
                 if (args.ClickCount < 2) return;

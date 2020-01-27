@@ -1,5 +1,5 @@
 INSERT INTO vozilo(marka, model, godiste, registarskiBroj, brojSasije, brojMotora, VlasnikVozila_id) 
-VALUES ("Fiat","Punto","2006","123-T-321","4242524242", "4322512521", 8);
+VALUES ("Fiat","Punto","2006","123-T-321","4242524242", "4322512521", 2);
 INSERT INTO voziloodfirme(Vozilo_id, slika, cijena, snizenje, opis) 
 VALUES (1, LOAD_FILE("C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/fiatpunto.jpg"), 5000, 0.2, "U dobrom stanju");
 

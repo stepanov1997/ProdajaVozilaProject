@@ -5,7 +5,7 @@ namespace ProdajaVozilaApp.Model.Dto.Vozila
 {
     public class Vozilo : IObject
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Marka { get; set; }
         public string Model { get; set; }
         public int GodinaProizvodnje { get; set; }
@@ -14,7 +14,7 @@ namespace ProdajaVozilaApp.Model.Dto.Vozila
         public string BrojMotora { get; set; }
         public VlasnikVozila VlasnikVozila { get; set; }
 
-        public Vozilo(int id, string marka, string model, int godinaProizvodnje, string registarskiBroj, string brojSasije,
+        public Vozilo(int? id, string marka, string model, int godinaProizvodnje, string registarskiBroj, string brojSasije,
             string brojMotora, VlasnikVozila vlasnikVozila)
         {
             Id = id;

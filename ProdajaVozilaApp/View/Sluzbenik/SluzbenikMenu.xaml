@@ -72,7 +72,7 @@
                     <RowDefinition Height="30*"></RowDefinition>
                     <RowDefinition Height="30*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Button Padding="40" Grid.Row="1" Style="{StaticResource NewGameButtonStyle}">
+                <Button Padding="40" Grid.Row="1" Style="{StaticResource NewGameButtonStyle}" Click="UpravljanjeVozilima_Click">
                     <TextBlock Text="Upravljanje vozilima za prodaju" TextAlignment="Center" FontWeight="Black" FontSize="15"/>
                 </Button>
                 <Button Padding="40" Grid.Row="3" Style="{StaticResource NewGameButtonStyle}">

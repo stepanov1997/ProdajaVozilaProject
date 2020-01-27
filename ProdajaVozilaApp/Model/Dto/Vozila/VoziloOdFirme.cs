@@ -6,14 +6,14 @@ namespace ProdajaVozilaApp.Model.Dto.Vozila
 {
     public class VoziloOdFirme
     {
-        public int Id { get; }
+        public int? Id { get; set; }
         public Vozilo Vozilo { get; }
-        public List<byte[]> Slike { get; }
+        public List<byte[]> Slike { get; set; }
         public double Cijena { get; }
         public double Snizenje { get; }
         public string Opis { get; }
 
-        public VoziloOdFirme(int id, Vozilo vozilo, List<byte[]> slike, double cijena, double snizenje, string opis)
+        public VoziloOdFirme(int? id, Vozilo vozilo, List<byte[]> slike, double cijena, double snizenje, string opis)
         {
             Id = id;
             Vozilo = vozilo;

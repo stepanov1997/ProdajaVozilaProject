@@ -28,7 +28,7 @@ namespace ProdajaVozilaApp.Model.Dao.VozilaDAO
             using (MyMySQLConnection connection = new MyMySQLConnection())
             {
                 MySqlCommand command = new MySqlCommand(GetQuery, connection.Connection);
-                command.Parameters.Add("@id", DbType.Int32).Value = id;
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
                 connection.Connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
                 try

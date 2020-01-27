@@ -25,5 +25,10 @@ namespace ProdajaVozilaApp.View.Sluzbenik
         {
             _navigationWindow.Navigate(new Menu(_navigationWindow, this));
         }
+
+        private void UpravljanjeVozilima_Click(object sender, RoutedEventArgs e)
+        {
+            _navigationWindow.Navigate(new UpdateCarsWindow(_navigationWindow));
+        }
     }
 }

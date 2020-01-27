@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Text;
 using MySql.Data.MySqlClient;
 using ProdajaVozilaApp.Model.Dto.Lica;
@@ -30,7 +29,7 @@ namespace ProdajaVozilaApp.Model.Dao.LicaDAO
                 MySqlCommand command = new MySqlCommand(GetQuery, connection.Connection);
                 connection.Connection.Open();
                 MySqlDataReader reader = command.ExecuteReader();
-                command.Parameters.Add("@id", DbType.Int32).Value = id;
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
                 try
                 {
                     return null;

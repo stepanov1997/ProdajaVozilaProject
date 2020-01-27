@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProdajaVozilaApp.View.Gost"
         mc:Ignorable="d"
-        Title="CarDetailedInfo" Height="543" Width="818">
+        Title="CarDetailedInfo" Height="543" Width="818"  WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="../../Resources/pozadina.jpg" Opacity="0.4"></ImageBrush>
     </Window.Background>

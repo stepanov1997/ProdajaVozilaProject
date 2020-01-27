@@ -1,0 +1,199 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Navigation;
+using ProdajaVozilaApp.Model.Dao.VozilaDAO;
+using ProdajaVozilaApp.Model.Dto.Vozila;
+using HorizontalAlignment = System.Windows.HorizontalAlignment;
+using Hyperlink = System.Windows.Documents.Hyperlink;
+using Page = System.Windows.Controls.Page;
+using VerticalAlignment = System.Windows.VerticalAlignment;
+
+namespace ProdajaVozilaApp.View.Sluzbenik
+{
+    /// <summary>
+    /// Interaction logic for Menu.xaml
+    /// </summary>
+    public partial class UpdateCarsWindow : Page
+    {
+        private NavigationWindow _navigationWindow;
+        public int Column { get; set; }
+        public int Row { get; set; }
+        public int NumOfPages { get; set; }
+        public int CurrentPage { get; set; }
+        // ReSharper disable once InconsistentNaming
+        private const int ROWS = 3;
+        // ReSharper disable once InconsistentNaming
+        private const int COLUMNS = 4;
+        private TextBlock header;
+        private StackPanel footer;
+        public List<CarComponentEdit[,]> ListOfPages { get; set; } = new List<CarComponentEdit[,]>();
+        public UpdateCarsWindow()
+        {
+            InitializeComponent();
+            AddCars();
+            ShowPage(0);
+        }
+        private byte[] GetImage(Vozilo vozilo)
+        {
+            string link = "https://picsum.photos/300/150";
+            var webClient = new WebClient();
+            return webClient.DownloadData(link);
+        }
+
+        private void AddFooter()
+        {
+            Grid.Children.Add(BackButton);
+            List<Label> hyperlinks = Enumerable.Range(0, NumOfPages).Select(page =>
+            {
+                var hyperlink = new Hyperlink(new Run($"{page + 1}"));
+                hyperlink.Click += (sender, args) => { ShowPage(page); };
+                return new Label { Content = hyperlink };
+            }).ToList();
+            footer.Children.Add(new TextBlock() { Text = "Stranice: " });
+            for (var index = 0; index < hyperlinks.Count; index++)
+            {
+                var e = hyperlinks[index];
+                if (index == CurrentPage)
+                {
+                    footer.Children.Add(new TextBlock() { Text = $"{index + 1}" + (index == hyperlinks.Count - 1 ? "" : ", "), VerticalAlignment = VerticalAlignment.Center, TextAlignment = TextAlignment.Center });
+                }
+                else
+                {
+                    footer.Children.Add(e);
+                    if (index != hyperlinks.Count - 1)
+                    {
+                        footer.Children.Add(new TextBlock() { Text = ", ", VerticalAlignment = VerticalAlignment.Center, TextAlignment = TextAlignment.Center });
+                    }
+                }
+
+            }
+        }
+
+        private void AddCars()
+        {
+            //int i = 0;
+            //Random rand = new Random();
+            //List<VoziloOdFirme> list = File.ReadAllLines("cars.csv")
+            //        .Skip(1)
+            //        .OrderBy(e => Guid.NewGuid())
+            //        .Take(50)
+            //        .Select(e => e.Split(','))
+            //        .Select(e =>
+            //        {
+            //            var vozilo = new Vozilo(i++, e[1], e[2], int.Parse(e[0]), 0, null, null, null);
+            //            return new VoziloOdFirme(i, vozilo, GetImage(vozilo),
+            //            rand.Next((vozilo.GodinaProizvodnje - 1900) * 200, (vozilo.GodinaProizvodnje - 1900) * 300),
+            //            rand.Next(5), "Ovo je opis");
+            //        })
+            //        .ToList();
+
+            List<VoziloOdFirme> list = new VoziloOdFirmeDao().GetAll();
+            int num = list.Count;
+            for (int i = 0; i < num; i++)
+            {
+                list.Add(list[i % 4]);
+            }
+
+            foreach (var voziloProxy in list)
+            {
+                if (Column == 0 && Row == 0)
+                {
+                    NumOfPages++;
+                    ListOfPages.Add(new CarComponentEdit[ROWS, COLUMNS]);
+                }
+                var component = new CarComponentEdit(voziloProxy);
+                ListOfPages[^1][Row, Column] = component;
+                Column++;
+                if (Column == COLUMNS)
+                {
+                    Column = 0;
+                    Row++;
+                    if (Row == ROWS)
+                    {
+                        Row = 0;
+                    }
+                }
+            }
+            if (Column == 0 && Row == 0)
+            {
+                NumOfPages++;
+                ListOfPages.Add(new CarComponentEdit[ROWS, COLUMNS]);
+            }
+            var component2 = new CarComponentEdit("dodavanje");
+            ListOfPages[^1][Row, Column] = component2;
+            Column++;
+            if (Column == COLUMNS)
+            {
+                Column = 0;
+                Row++;
+                if (Row == ROWS)
+                {
+                    Row = 0;
+                }
+            }
+        }
+
+        public void ShowPage(int page)
+        {
+            CurrentPage = page;
+            Grid.Children.Clear();
+            header = new TextBlock()
+            {
+                FontWeight = FontWeights.Bold,
+                FontSize = 15,
+                TextAlignment = TextAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Text = "AUTA KOJA SU NA PRODAJI",
+                Height = 20
+            };
+            Grid.Children.Add(header);
+            Grid.SetColumn(header, 1);
+            Grid.SetRow(header, 0);
+            Grid.SetColumnSpan(header, 2);
+
+            footer = new StackPanel()
+            {
+                Orientation = Orientation.Horizontal,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+            };
+            Grid.Children.Add(footer);
+            Grid.SetColumn(footer, 1);
+            Grid.SetColumnSpan(footer, 2);
+            Grid.SetRow(footer, 4);
+
+            if (ListOfPages.Count != 0)
+            {
+                for (int row = 0; row < ListOfPages[page].GetLength(0); row++)
+                {
+                    for (int column = 0; column < ListOfPages[page].GetLength(1); column++)
+                    {
+                        var component = ListOfPages[page][row, column];
+                        if (component == null) continue;
+                        Grid.Children.Add(component);
+                        Grid.SetRow(component, row + 1);
+                        Grid.SetColumn(component, column);
+                    }
+                }
+            }
+
+            AddFooter();
+        }
+
+        public UpdateCarsWindow(NavigationWindow navigationWindow) : this()
+        {
+            _navigationWindow = navigationWindow;
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            _navigationWindow.Navigate(new Menu(_navigationWindow, this));
+        }
+    }
+}

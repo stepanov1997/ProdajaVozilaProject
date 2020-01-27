@@ -29,37 +29,37 @@ namespace ProdajaVozilaApp.Model.Dao.LicaDAO
         {
 
             return null;
-            using (MyMySQLConnection connection = new MyMySQLConnection())
-            {
-                MySqlCommand command = new MySqlCommand(GetQuery, connection.Connection);
-                connection.Connection.Open();
-                MySqlDataReader reader = command.ExecuteReader();
-                command.Parameters.Add("@id", DbType.Int32).Value = id;
-                var readerData = command.ExecuteReader();
-                try
-                {
-                    while(readerData.Read())
-                        return new Lice(
-                            id,
-                            (string)reader["ime"],
-                            (string)reader["prezime"],
-                            (string)reader["brojLicneKarte"],
-                            (string)reader["jmbg"],
-                            new MjestoStanovanja(
-                                reader.GetInt32(reader.GetOrdinal("MjestoStanovanja_id")),
-                                (string)reader["grad"],
-                                (string)reader["opstina"],
-                                (string)reader["ulica"],
-                                (string)reader["broj"]),
-                            (TipLica)Enum.Parse(typeof(TipLica), (string)reader["TipLica"]));
-                }
-                finally
-                {
-                    reader.Close();
-                }
+            //using (MyMySQLConnection connection = new MyMySQLConnection())
+            //{
+            //    MySqlCommand command = new MySqlCommand(GetQuery, connection.Connection);
+            //    connection.Connection.Open();
+            //    MySqlDataReader reader = command.ExecuteReader();
+            //    command.Parameters.Add("@id", DbType.Int32).Value = id;
+            //    var readerData = command.ExecuteReader();
+            //    try
+            //    {
+            //        while(readerData.Read())
+            //            return new Lice(
+            //                id,
+            //                (string)reader["ime"],
+            //                (string)reader["prezime"],
+            //                (string)reader["brojLicneKarte"],
+            //                (string)reader["jmbg"],
+            //                new MjestoStanovanja(
+            //                    reader.GetInt32(reader.GetOrdinal("MjestoStanovanja_id")),
+            //                    (string)reader["grad"],
+            //                    (string)reader["opstina"],
+            //                    (string)reader["ulica"],
+            //                    (string)reader["broj"]),
+            //                (TipLica)Enum.Parse(typeof(TipLica), (string)reader["TipLica"]));
+            //    }
+            //    finally
+            //    {
+            //        reader.Close();
+            //    }
 
-                return null;
-            }
+            //    return null;
+            //}
         }
 
         public List<Lice> GetAll()
